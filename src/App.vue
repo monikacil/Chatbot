@@ -1,28 +1,45 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <VueBotUI :messages="data" :options="botOptions" :bot-typing="botTyping" :is-open="true"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { VueBotUI } from 'vue-bot-ui'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    VueBotUI,
+  },
+
+  data () {
+    return {
+      botTyping: false,
+      data: [
+        {
+          agent: 'bot',
+          type: 'text',
+          text: 'Hello. How can I help you?'
+        },
+        {
+          agent: 'user',
+          type: 'text',
+          text: 'I need a new laptop',
+        },
+      ],
+      botOptions: {
+        botAvatarImg: 'https://image.flaticon.com/icons/png/512/1533/1533105.png',
+        botAvatarSize: 64,
+        inputPlaceholder: 'Type the message...'
+      }
+    }
   }
 }
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  * {
+    font-family: sans-serif;
+  }
 </style>
