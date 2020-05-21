@@ -39,7 +39,7 @@ export default {
     setTimeout(function(){
       that.data.push(that._addMessage('bot', 'Hello. How can I help you?'))
       that.botTyping = false
-    }, 2000)
+    }, 1500)
   },
 
   methods: {
@@ -50,17 +50,16 @@ export default {
 
       axios({
         method: 'post',
-        url: process.env.VUE_APP_API,
-        headers: {},
+        url: 'https://wsbchatbot.azurewebsites.net/question/',
         data: {
           question: data.text
         }
       }).then( function(response) {
-        this.botTyping = true,
+        that.botTyping = true,
         setTimeout(function(){
-          that.data.push(that._addMessage('bot', response.answer))
+          that.data.push(that._addMessage('bot', response.data.answer))
           that.botTyping = false
-        }, 2000)
+        }, 1500)
       })
     },
 
