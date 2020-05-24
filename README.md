@@ -1,5 +1,9 @@
 # chatbot
 
+## Documentation and load tests
+
+See _ReportChat_ for more details about load tests and _Projekt-zespolowy-dokumentacja.pdf_ for documentation
+
 ## Project setup
 ```
 npm install
